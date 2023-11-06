@@ -1,0 +1,143 @@
+@tailwind base;
+@layer base {
+  img {
+    @apply inline-block;
+  }
+  h1 {
+    @apply text-2xl font-bold;
+  }
+  h2 {
+    @apply text-xl font-bold;
+  }
+  h3 {
+    @apply text-lg font-bold;
+  }
+  a {
+    @apply text-blue-600 underline;
+  }
+}
+
+@tailwind components;
+
+@tailwind utilities;
+
+body {
+  color: rgb(var(--foreground-rgb));
+  background: linear-gradient(
+      to bottom,
+      transparent,
+      rgb(var(--background-end-rgb))
+    )
+    rgb(var(--background-start-rgb));
+}
+
+div {
+  font-family: "Kanit", sans-serif;
+  /* font-family: "Inter", sans-serif; */
+  font-weight: 400;
+  font-size: 16px;
+  color: #434738;
+}
+
+@layer components {
+  .button {
+    position: relative;
+    cursor: pointer;
+    color: #434738;
+  }
+
+  .button:hover {
+    transition-duration: 0.1s;
+    color: #798bcc;
+  }
+
+  .button:after {
+    content: "";
+    color: #434738;
+    background: #798bcc3d;
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    transition: all 0.8s;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+  }
+
+  .button:active:after {
+    top: 50%;
+    left: 50%;
+    opacity: 0.5;
+    transition: 0s;
+    width: 0;
+    height: 0;
+  }
+  .button-fade {
+    position: relative;
+    cursor: pointer;
+    color: #434738;
+  }
+
+  .button-fade:not([disabled]):hover {
+    transition-duration: 0.5s;
+    /* background-color: #92a5e9; */
+  }
+
+  .button-fade:not([disabled]):after {
+    content: "";
+    background: #f5f7ff7f;
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    transition: all 0.5s;
+    width: 100%;
+    height: 100%;
+    border-radius: 8px;
+  }
+
+  .button-fade:not([disabled]):active:after {
+    top: 0;
+    left: 50%;
+    opacity: 0.5;
+    transition: 0s;
+    width: 0;
+    height: 100%;
+  }
+
+  input,
+  textarea,
+  button,
+  select,
+  div,
+  a {
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  .custom-file-input::-webkit-file-upload-button {
+    visibility: hidden;
+  }
+  .custom-file-input::before {
+    content: "Select some files";
+    display: inline-block;
+    background: -webkit-linear-gradient(top, #f9f9f9, #e3e3e3);
+    border: 1px solid #999;
+    border-radius: 3px;
+    padding: 5px 8px;
+    outline: none;
+    white-space: nowrap;
+    cursor: pointer;
+    text-shadow: 1px 1px #fff;
+    font-weight: 700;
+    font-size: 10pt;
+  }
+  .custom-file-input:hover::before {
+    border-color: black;
+  }
+  .custom-file-input:active::before {
+    background: -webkit-linear-gradient(top, #e3e3e3, #f9f9f9);
+  }
+}
